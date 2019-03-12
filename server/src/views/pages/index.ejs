@@ -6,16 +6,12 @@
     </head>
     <body>
         <main>
-            <header>
-                <h1>
-                    Game of Thrones
-                </h1>
-            </header>
+            <% include ../partials/pageHeader %>
             <section>
                 <ul class="InfiniteScrollList">
                     <% characters.forEach(function(character) { %>
                         <li>
-                            <a class="CharacterButton Link" href="<%= character.url %>">
+                            <a class="CharacterButton" href="<%= character.url %>">
                                 <%= character.name %>
                             </a>
                         </li>

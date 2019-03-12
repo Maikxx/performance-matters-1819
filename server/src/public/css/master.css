@@ -38,3 +38,16 @@
 .CharacterButton:active {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
+
+.Link {
+    display: block;
+    font-size: inherit;
+    color: #4F8CC4;
+    transition: .2s color ease;
+    cursor: pointer;
+}
+
+.Link:hover {
+    text-decoration: underline;
+    color: #5E8FC9;
+}
