@@ -1,4 +1,5 @@
 export interface Book {
+    id: string
     isbn: string
     authors: string
     numberOfPages: number

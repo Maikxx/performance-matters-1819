@@ -1,12 +1,12 @@
 <ul class="DataList">
-    <% Object.entries(character).forEach(function([key, value]) { %>
+    <% Object.entries(data).forEach(function([key, value]) { %>
         <li class="DataList__item">
             <h2 class="DataList__item-heading">
                 <%= key %>
             </h2>
             <% if (Array.isArray(value)) { %>
                 <% value.forEach(function(v) { %>
-                    <% if (v.includes('https://anapioficeandfire.com/api/')) { %>
+                    <% if (typeof v !== 'number' && v.includes('https://anapioficeandfire.com/api/')) { %>
                         <a
                             class="DataList__item-content Link"
                             href="/<%= v.split('/').reverse()[1] %>/<%= v.split('/').reverse()[0] %>"
@@ -14,13 +14,19 @@
                             <%= v.split('/').reverse()[1] && v.split('/').reverse()[1].slice(0, -1) %> <%= v.split('/').reverse()[0] %>
                         </a>
                     <% } else { %>
-                        <p class="DataList__item-content">
-                            <%= v.split('/').reverse()[1] && v.split('/').reverse()[1].slice(0, -1) %> <%= v.split('/').reverse()[0] %>
-                        </p>
+                        <% if (typeof v !== 'number') { %>
+                            <p class="DataList__item-content">
+                                <%= v.split('/').reverse()[1] && v.split('/').reverse()[1].slice(0, -1) %> <%= v.split('/').reverse()[0] %>
+                            </p>
+                        <% } else { %>
+                            <p class="DataList__item-content">
+                                <%= v %>
+                            </p>
+                        <% } %>
                     <% } %>
                 <% }) %>
             <% } else { %>
-                <% if (value.includes('https://anapioficeandfire.com/api/')) { %>
+                <% if (typeof value !== 'number' && value.includes('https://anapioficeandfire.com/api/')) { %>
                     <a
                         class="DataList__item-content Link"
                         href="/<%= value.split('/').reverse()[1] %>/<%= value.split('/').reverse()[0] %>"
@@ -28,9 +34,15 @@
                         <%= value.split('/').reverse()[1] && value.split('/').reverse()[1].slice(0, -1) %> <%= value.split('/').reverse()[0] %>
                     </a>
                 <% } else { %>
-                    <p class="DataList__item-content">
-                        <%= value.split('/').reverse()[1] && value.split('/').reverse()[1].slice(0, -1) %> <%= value.split('/').reverse()[0] %>
-                    </p>
+                    <% if (typeof value !== 'number') { %>
+                        <p class="DataList__item-content">
+                            <%= value.split('/').reverse()[1] && value.split('/').reverse()[1].slice(0, -1) %> <%= value.split('/').reverse()[0] %>
+                        </p>
+                    <% } else { %>
+                        <p class="DataList__item-content">
+                            <%= value %>
+                        </p>
+                    <% } %>
                 <% } %>
             <% } %>
         </li>
