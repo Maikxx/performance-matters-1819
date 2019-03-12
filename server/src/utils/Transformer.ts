@@ -7,12 +7,6 @@ export class Transformer {
             : `${text[0].toUpperCase()}${text.slice(1, text.length)}`
     }
 
-    public static flattenDeep = (arr: any): any => {
-        return Array.isArray(arr)
-            ? arr.reduce((a, b) => a.concat(Transformer.flattenDeep(b)), [])
-            : arr
-    }
-
     public static addIdToObject(id: string, object: Object) {
         return {
             ...object,

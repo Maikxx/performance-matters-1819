@@ -29,6 +29,6 @@
     display: block;
 }
 
-.DataList__item-content-text {
-    display: block;
+.DataList__item-content.Link {
+    text-transform: capitalize;
 }

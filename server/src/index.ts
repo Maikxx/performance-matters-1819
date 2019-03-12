@@ -1,9 +1,14 @@
 import Express from 'express'
 import Helmet from 'helmet'
 import path from 'path'
-import { getCharacters } from './helpers/getCharacters'
+import fs from 'fs'
+import util from 'util'
+import { Sorter } from './utils/Sorter'
+import { Character } from './types/Character'
 
-(async() => {
+const readFile = util.promisify(fs.readFile)
+
+; (async() => {
     const app = Express()
     app.use(Helmet())
     app.use(Express.static(path.join(__dirname, 'public')))
@@ -11,22 +16,30 @@ import { getCharacters } from './helpers/getCharacters'
     app.set('view engine', 'ejs')
     app.set('views', `${__dirname}/views`)
 
-    app.get('/', async (request: Express.Request, response: Express.Response) => {
-        const characters = await getCharacters()
+    const charactersJson = await readFile(path.join(__dirname, './public/data/characters.json'))
+    const charactersData = await JSON.parse(charactersJson.toString())
+    const characters = (charactersData.flat() as Character[])
 
+    app.get('/', async (request: Express.Request, response: Express.Response) => {
         response.status(200).render('pages/index', {
-            characters,
+            characters: characters.sort(Sorter.sortByObjectKey('name')),
         })
     })
 
     app.get('/characters/:id', async (request: Express.Request, response: Express.Response) => {
         const { id } = request.params
-        const character = await getCharacters(id)
-        const allowedKeys = [ 'url', 'id' ]
-        const characterData = Object.keys(character['0'])
-            .filter(key => !allowedKeys.includes(key))
+        const character = characters.find(character => character.id === id)
+
+        if (!character) {
+            response.status(404).send('This character could not be found!')
+            return
+        }
+
+        const disallowedKeys = [ 'url', 'id', 'detailUrl' ]
+        const characterData = Object.keys(character)
+            .filter(key => !disallowedKeys.includes(key))
             .reduce((obj, key) => {
-                obj[key] = character['0'][key]
+                obj[key] = character[key]
                 return obj
             }, {})
 
