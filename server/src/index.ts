@@ -1,13 +1,19 @@
 import Express from 'express'
 import Helmet from 'helmet'
-import path from 'path'
+import { getCharacters } from './helpers/getCharacters'
 
 (async() => {
     const app = Express()
     app.use(Helmet())
 
-    app.get('/', (request: Express.Request, response: Express.Response) => {
-        response.sendFile(path.join(__dirname, './public/index.html'))
+    app.set('view engine', 'ejs')
+    app.set('views', `${__dirname}/views`)
+    app.get('/', async (request: Express.Request, response: Express.Response) => {
+        const characters = await getCharacters()
+
+        response.render('pages/index', {
+            characters,
+        })
     })
 
     app.listen(({ port: 3000 }), () => {

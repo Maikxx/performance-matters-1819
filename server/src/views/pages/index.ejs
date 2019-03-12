@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <% include ../partials/head %>
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>
+                    Game of Thrones
+                </h1>
+            </header>
+            <section class="View">
+                <ul class="InfiniteScrollList">
+                    <% characters.forEach(function(character) { %>
+                        <li>
+                            <button class="CharacterButton">
+                                <%= character.name %>
+                            </button>
+                        </li>
+                    <% }) %>
+                </ul>
+            </section>
+        </main>
+    </body>
+</html>
