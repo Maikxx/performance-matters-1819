@@ -9,10 +9,6 @@
 
 .DataList__item {
     width: 50%;
-    overflow: hidden;
-}
-
-.DataList__item + .DataList__item {
     margin-top: 24px;
 }
 
