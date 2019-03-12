@@ -2,7 +2,25 @@
     <% Object.entries(data).forEach(function([key, value]) { %>
         <li class="DataList__item">
             <h2 class="DataList__item-heading">
-                <%= key %>
+                <% if (key === 'numberOfPages') { %>
+                    Number of pages
+                <% } else if (key === 'mediaType') { %>
+                    Media type
+                <% } else if (key === 'povCharacters') { %>
+                    POV Characters
+                <% } else if (key === 'povBooks') { %>
+                    POV Books
+                <% } else if (key === 'coatOfArms') { %>
+                    Coat of arms
+                <% } else if (key === 'cadetBranches') { %>
+                    Cadet branches
+                <% } else if (key === 'ancestralWeapons') { %>
+                    Ancestral weapons
+                <% } else if (key === 'swornMembers') { %>
+                    Sworn members
+                <% } else { %>
+                    <%= key %>
+                <% } %>
             </h2>
             <% if (Array.isArray(value)) { %>
                 <% value.forEach(function(v) { %>
