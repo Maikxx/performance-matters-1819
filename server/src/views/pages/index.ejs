@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <% include ../partials/head %>
+        <link rel="stylesheet" type="text/css" href="css/master.css">
     </head>
     <body>
         <main>
@@ -10,13 +11,13 @@
                     Game of Thrones
                 </h1>
             </header>
-            <section class="View">
+            <section>
                 <ul class="InfiniteScrollList">
                     <% characters.forEach(function(character) { %>
                         <li>
-                            <button class="CharacterButton">
+                            <a class="CharacterButton Link" href="<%= character.url %>">
                                 <%= character.name %>
-                            </button>
+                            </a>
                         </li>
                     <% }) %>
                 </ul>

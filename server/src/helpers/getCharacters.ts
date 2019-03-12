@@ -17,7 +17,7 @@ export async function getCharacters() {
             .filter(character => !!character.name)
             .map(character => ({
                 name: Transformer.capitalize(character.name),
-                url: `localhost:3000/characters/${character.url.slice(character.url.lastIndexOf('/') + 1)}`,
+                url: `/characters/${character.url.slice(character.url.lastIndexOf('/') + 1)}`,
             }))
             .sort(Sorter.sortByObjectKey<Character>('name'))
 
