@@ -26,7 +26,7 @@ export async function getBooks() {
             }))
 
         console.log(transformedData)
-        await writeFile(path.join(__dirname, '../public/data/books.json'), JSON.stringify(transformedData))
+        await writeFile(path.join(__dirname, '../../public/data/books.json'), JSON.stringify(transformedData))
     } catch (error) {
         console.error(error)
     }

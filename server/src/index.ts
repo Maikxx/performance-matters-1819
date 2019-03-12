@@ -11,12 +11,12 @@ const readFile = util.promisify(fs.readFile)
 ; (async() => {
     const app = Express()
     app.use(Helmet())
-    app.use(Express.static(path.join(__dirname, 'public')))
+    app.use(Express.static(path.join(__dirname, '../public')))
 
     app.set('view engine', 'ejs')
     app.set('views', `${__dirname}/views`)
 
-    const charactersJson = await readFile(path.join(__dirname, './public/data/characters.json'))
+    const charactersJson = await readFile(path.join(__dirname, '../public/data/characters.json'))
     const charactersData = await JSON.parse(charactersJson.toString())
     const characters = (charactersData.flat() as Character[])
 
