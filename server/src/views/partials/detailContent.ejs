@@ -1,0 +1,20 @@
+<ul class="DataList">
+    <% Object.entries(character).forEach(function([key, value]) { %>
+        <li class="DataList__item">
+            <h2 class="DataList__item-heading">
+                <%= key %>
+            </h2>
+            <% if (Array.isArray(value)) { %>
+                <% value.forEach(function(v) { %>
+                    <p class="DataList__item-content">
+                        <%= v %>
+                    </p>
+                <% }) %>
+            <% } else { %>
+                <p class="DataList__item-content">
+                    <%= value %>
+                </p>
+            <% } %>
+        </li>
+    <% }) %>
+</ul>

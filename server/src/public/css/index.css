@@ -60,6 +60,7 @@ html, body {
 
 body {
     display: flex;
+    overflow-x: hidden;
     line-height: 1;
     background-color: #FFFFFF;
     font-family: 'Raleway', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -73,4 +74,18 @@ body main {
     flex-direction: column;
     flex: 1 0;
     padding: 24px;
+}
+
+.Link {
+    display: block;
+    font-size: inherit;
+    text-decoration: none;
+    color: #4F8CC4;
+    cursor: pointer;
+}
+
+.Link:hover {
+    transition: .2s color ease;
+    text-decoration: underline;
+    color: #5E8FC9;
 }

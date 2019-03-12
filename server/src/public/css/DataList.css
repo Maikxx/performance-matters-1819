@@ -1,0 +1,34 @@
+.DataList {
+    margin-top: 12px;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.DataList__item {
+    width: 50%;
+    overflow: hidden;
+}
+
+.DataList__item + .DataList__item {
+    margin-top: 24px;
+}
+
+.DataList:not(:first-child) .DataList__item {
+    margin-top: 12px;
+}
+
+.DataList__item-heading {
+    margin-bottom: 6px;
+    text-transform: capitalize;
+}
+
+.DataList__item-content {
+    display: block;
+}
+
+.DataList__item-content-text {
+    display: block;
+}
