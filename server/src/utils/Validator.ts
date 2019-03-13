@@ -1,7 +1,6 @@
 export class Validator {
     public static validateDate(text: string) {
-        const dateToTest = new Date(text)
-        return Boolean(+dateToTest)
+        return Boolean(+new Date(text))
     }
 
     public static isObject(subject: any) {
