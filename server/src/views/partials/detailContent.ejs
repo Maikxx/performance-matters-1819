@@ -53,9 +53,15 @@
                     </a>
                 <% } else { %>
                     <% if (typeof value !== 'number') { %>
-                        <p class="DataList__item-content">
-                            <%= value.split('/').reverse()[1] && value.split('/').reverse()[1].slice(0, -1) %> <%= value.split('/').reverse()[0] %>
-                        </p>
+                        <% if (Boolean(+new Date(value))) { %>
+                            <p class="DataList__item-content">
+                                <%= new Date(value).toLocaleDateString() %>
+                            </p>
+                        <% } else { %>
+                            <p class="DataList__item-content">
+                                <%= value.split('/').reverse()[1] && value.split('/').reverse()[1].slice(0, -1) %> <%= value.split('/').reverse()[0] %>
+                            </p>
+                        <% } %>
                     <% } else { %>
                         <p class="DataList__item-content">
                             <%= value %>
