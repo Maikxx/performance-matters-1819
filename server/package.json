@@ -5,7 +5,7 @@
     "license": "MIT",
     "scripts": {
         "compile": "tsc",
-        "open-chrome": "wait-on http://localhost:1234 && open -a \"Google Chrome\" http://localhost:1234",
+        "open-chrome": "wait-on http://localhost:3000 && open -a \"Google Chrome\" http://localhost:3000",
         "start-production": "tsc && node ./dist/index.js",
         "start-server": "ts-node-dev --respawn --transpileOnly ./src/index.ts",
         "watch-server": "concurrently \"yarn start-server\" \"yarn open-chrome\" --raw"
