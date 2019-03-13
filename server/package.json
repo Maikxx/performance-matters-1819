@@ -8,7 +8,7 @@
         "open-chrome": "wait-on http://localhost:3000 && open -a \"Google Chrome\" http://localhost:3000",
         "start-production": "tsc && node ./dist/index.js",
         "start-server": "ts-node-dev --respawn --transpileOnly ./src/index.ts",
-        "watch-server": "concurrently \"yarn start-server\" \"yarn open-chrome\" --raw"
+        "watch-server": "gulp minifyCss && concurrently \"yarn start-server\" \"yarn open-chrome\" --raw"
     },
     "devDependencies": {
         "@types/ejs": "^2.6.3",
@@ -16,6 +16,8 @@
         "@types/helmet": "^0.0.43",
         "@types/node-fetch": "^2.1.6",
         "concurrently": "^4.1.0",
+        "gulp": "^4.0.0",
+        "gulp-clean-css": "^4.0.0",
         "ts-node-dev": "^1.0.0-pre.32",
         "tslint": "^5.13.1",
         "tslint-eslint-rules": "^5.4.0",

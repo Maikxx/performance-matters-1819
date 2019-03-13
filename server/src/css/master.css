@@ -1,0 +1,40 @@
+.InfiniteScrollList {
+    overflow: auto;
+    height: 85vh;
+    list-style: none;
+    display: flex;
+    margin-top: 12px;
+    margin-left: -1%;
+    margin-right: -1%;
+    flex-direction: row;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.InfiniteScrollList li {
+    width: 12%;
+    padding: 1%;
+    margin-bottom: 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.CharacterButton {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    padding: 24px;
+    width: 100%;
+    cursor: pointer;
+    min-height: 80px;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+}
+
+.CharacterButton:hover,
+.CharacterButton:active {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    transition: 0.3s box-shadow;
+}
