@@ -38,3 +38,33 @@
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     transition: 0.3s box-shadow;
 }
+
+.PageHeader {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.SearchForm fieldset {
+    border: none;
+}
+
+.SearchForm legend {
+    display: none;
+}
+
+.Search {
+    display: block;
+    min-width: 240px;
+    border: 1px solid black;
+}
+
+.Search__input {
+    width: 100%;
+    border: none;
+    min-height: 36px;
+    padding: 12px;
+    position: relative;
+    z-index: 1;
+}

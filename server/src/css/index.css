@@ -2,6 +2,7 @@
     margin: 0;
     font-family: inherit;
     line-height: inherit;
+    padding: 0;
     color: inherit;
     box-sizing: inherit;
 }
@@ -35,7 +36,6 @@ table {
 }
 
 ol, ul {
-    padding: 0;
     list-style: none;
 }
 
@@ -55,7 +55,6 @@ html {
 
 html, body {
     min-height: 100vh;
-    padding: 0;
 }
 
 body {

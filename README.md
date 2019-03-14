@@ -62,7 +62,7 @@ House detail page | Book detail page
 ## Future enhancements
 
 * [ ] Add more styling to make the application more appealing.
-* [ ] Implement the search functionality I originally had.
+* [X] Implement the search functionality I originally had.
 * [ ] Update docs images.
 
 ## License

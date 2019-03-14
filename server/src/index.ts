@@ -9,6 +9,8 @@ import { filterDetailPageData } from './helpers/filterDetailPageData'
 import { Book } from './types/Book'
 import { House } from './types/House'
 import compression from 'compression'
+import bodyParser from 'body-parser'
+import { SearchBody } from './types/Search'
 
 const readFile = util.promisify(fs.readFile)
 
@@ -36,10 +38,22 @@ const readFile = util.promisify(fs.readFile)
     const houses = (housesData.flat() as House[])
     const books = (booksData.flat() as Book[])
 
+    const urlencodedParser = bodyParser.urlencoded({ extended: false })
+
     app.get('/', async (request: Express.Request, response: Express.Response) => {
-        response.status(200).render('pages/index', {
-            characters: characters.sort(Sorter.sortByObjectKey('name')),
-        })
+        const { searchText } = request.query as SearchBody
+
+        if (!searchText) {
+            response.status(200).render('pages/index', {
+                characters: characters.sort(Sorter.sortByObjectKey('name')),
+            })
+        } else {
+            response.status(200).render('pages/index', {
+                characters: characters
+                    .filter(character => character.name.includes(searchText))
+                    .sort(Sorter.sortByObjectKey('name')),
+            })
+        }
     })
 
     app.get('/characters/:id', async (request: Express.Request, response: Express.Response) => {
@@ -47,8 +61,7 @@ const readFile = util.promisify(fs.readFile)
         const character = characters.find(character => character.id === id)
 
         if (!character) {
-            response.status(404).send('This character could not be found!')
-            return
+            return response.status(404).redirect('/?error=not-found')
         }
 
         response.status(200).render('pages/characterDetail', {
@@ -61,8 +74,7 @@ const readFile = util.promisify(fs.readFile)
         const book = books.find(book => book.id === id)
 
         if (!book) {
-            response.status(404).send('This book could not be found!')
-            return
+            return response.status(404).redirect('/?error=not-found')
         }
 
         response.status(200).render('pages/bookDetail', {
@@ -75,8 +87,7 @@ const readFile = util.promisify(fs.readFile)
         const house = houses.find(house => house.id === id)
 
         if (!house) {
-            response.status(404).send('This house could not be found!')
-            return
+            return response.status(404).redirect('/?error=not-found')
         }
 
         response.status(200).render('pages/houseDetail', {
@@ -84,11 +95,27 @@ const readFile = util.promisify(fs.readFile)
         })
     })
 
+    app.post('/search', urlencodedParser, (request: Express.Request, response: Express.Response) => {
+        const { searchText } = request.body as SearchBody
+
+        if (!searchText) {
+            response
+                .status(404)
+                .redirect('/')
+        }
+
+        response
+            .status(200)
+            .redirect(`/?searchText=${searchText}`)
+    })
+
     app.get('*', (request: Express.Request, response: Express.Response) => {
-        response.status(404).send('This page does not exist!')
+        response
+            .status(404)
+            .redirect('/?error=not-found')
     })
 
     app.listen(({ port: 3000 }), () => {
-        console.info(`App is now listening.`)
+        console.info(`App is now open for action.`)
     })
 })()
