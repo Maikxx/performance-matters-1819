@@ -99,9 +99,7 @@ const readFile = util.promisify(fs.readFile)
         const { searchText } = request.body as SearchBody
 
         if (!searchText) {
-            response
-                .status(404)
-                .redirect('/')
+            return response.status(404).redirect('/')
         }
 
         response
