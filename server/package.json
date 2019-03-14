@@ -8,7 +8,7 @@
         "open-chrome": "wait-on http://localhost:3000 && open -a \"Google Chrome\" http://localhost:3000",
         "start-production": "tsc && node ./dist/index.js",
         "start-server": "ts-node-dev --respawn --transpileOnly ./src/index.ts",
-        "watch-server": "gulp minifyCss && concurrently \"yarn start-server\" \"yarn open-chrome\" --raw"
+        "watch-server": "concurrently \"gulp minifyCss\" \"yarn start-server\" \"yarn open-chrome\" --raw"
     },
     "devDependencies": {
         "@types/ejs": "^2.6.3",
