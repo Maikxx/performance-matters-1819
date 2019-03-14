@@ -7,7 +7,7 @@
     "license": "MIT",
     "scripts": {
         "build": "yarn build-server",
-        "build-server": "yarn install --cwd server && cd server && yarn build",
+        "build-server": "cd server && yarn install && yarn build",
         "start": "yarn start-server",
         "start-server": "cd server && yarn start"
     },
