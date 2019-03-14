@@ -40,5 +40,9 @@
         "helmet": "^3.16.0",
         "memory-cache": "^0.2.0",
         "node-fetch": "^2.3.0"
+    },
+    "engineStrict": true,
+    "engines": {
+        "node": "11.0.0"
     }
 }
