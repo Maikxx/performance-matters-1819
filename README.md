@@ -12,12 +12,13 @@ House detail page | Book detail page
 
 ## Table of Contents
 
-1. [Installation](#installation)
-    1. [Pre-install](#pre-install)
-    2. [Install](#install)
-2. [Technologies used 📦](#technologies-used)
-3. [Data sources](#data-sources)
-4. [License](#license)
+1. [Installation](#Installation)
+    1. [Pre-install](#Pre-install)
+    2. [Install](#Install)
+2. [Technologies used 📦](#Technologies-used)
+2. [Enhancements made](#Enhancements-made)
+3. [Data sources](#Data-sources)
+4. [License](#License)
 
 ## Installation
 
@@ -40,6 +41,13 @@ House detail page | Book detail page
 * [TypeScript](https://www.typescriptlang.org).
 * [Wait-on](https://www.npmjs.com/package/wait-on).
 * [Yarn](https://yarnpkg.com/en/).
+
+## Enhancements made
+
+* Enabled text [compression](https://github.com/expressjs/compression).
+* Render the application server side.
+* [Minify and prefix](./server/gulpfile.js) the css.
+* Prefetch [data](./server/public/data) from the [API](https://anapioficeandfire.com/) on the server and load it into memory, so that no excess requests are needed.
 
 ## Data sources
 
