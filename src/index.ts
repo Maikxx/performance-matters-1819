@@ -12,7 +12,7 @@ import { cache } from './services/memoryCache'
     const app = Express()
     app.use(Helmet())
     app.use(compression())
-    app.use(Express.static(path.join(__dirname, './public')))
+    app.use(Express.static(path.join(__dirname, '../public')))
 
     app.set('view engine', 'ejs')
     app.set('views', `${__dirname}/views`)
