@@ -8,12 +8,14 @@ import { Character } from './types/Character'
 import { filterDetailPageData } from './helpers/filterDetailPageData'
 import { Book } from './types/Book'
 import { House } from './types/House'
+import compression from 'compression'
 
 const readFile = util.promisify(fs.readFile)
 
 ; (async() => {
     const app = Express()
     app.use(Helmet())
+    app.use(compression())
     app.use(Express.static(path.join(__dirname, '../public')))
 
     app.set('view engine', 'ejs')
