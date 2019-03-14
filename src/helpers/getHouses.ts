@@ -30,7 +30,7 @@ export async function getHouses() {
             return transformedData
         }))
 
-        await writeFile(path.join(__dirname, '../../public/data/houses.json'), JSON.stringify(houses))
+        await writeFile(path.join(__dirname, '.././public/data/houses.json'), JSON.stringify(houses))
     } catch (error) {
         console.error(error)
     }

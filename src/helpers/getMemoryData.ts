@@ -9,9 +9,9 @@ const readFile = util.promisify(fs.readFile)
 
 export async function getMemoryData() {
     const [ charactersResponse, booksResponse, housesResponse ] = await Promise.all([
-        await readFile(path.join(__dirname, '../../public/data/characters.json')),
-        await readFile(path.join(__dirname, '../../public/data/books.json')),
-        await readFile(path.join(__dirname, '../../public/data/houses.json')),
+        await readFile(path.join(__dirname, '.././public/data/characters.json')),
+        await readFile(path.join(__dirname, '.././public/data/books.json')),
+        await readFile(path.join(__dirname, '.././public/data/houses.json')),
     ])
     const [ charactersData, booksData, housesData ] = await Promise.all([
         await JSON.parse(charactersResponse.toString()),

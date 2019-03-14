@@ -30,7 +30,7 @@ export async function getCharacters() {
             return transformedData
         }))
 
-        await writeFile(path.join(__dirname, '../../public/data/characters.json'), JSON.stringify(characters))
+        await writeFile(path.join(__dirname, '.././public/data/characters.json'), JSON.stringify(characters))
     } catch (error) {
         console.error(error)
     }
