@@ -58,6 +58,16 @@
     display: block;
     min-width: 240px;
     border: 1px solid black;
+    position: relative;
+}
+
+.Search__label {
+    visibility: hidden;
+    position: absolute;
+    overflow: hidden;
+    left: 0;
+    top: 0;
+    pointer-events: none;
 }
 
 .Search__input {

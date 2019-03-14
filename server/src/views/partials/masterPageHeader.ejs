@@ -8,10 +8,10 @@
     </nav>
     <form action="/search" method="POST" enctype="application/x-www-form-urlencoded" class="SearchForm">
         <fieldset>
-            <legend>
+            <legend id="searchTextLabel">
                 Search for a character
             </legend>
-            <label class="Search" for="searchText">
+            <label class="Search" for="searchText" aria-labelledby="searchTextLabel">
                 <input
                     class="Search__input"
                     type="text"
