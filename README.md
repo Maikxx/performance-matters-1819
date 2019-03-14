@@ -36,6 +36,9 @@ House detail page | Book detail page
 * Install dependencies: `yarn` or `npm install`.
 * Start the server with: `yarn start-server` or `npm run start-server`.
 
+The build (`yarn build`) runs the TypeScript compiler first, turning the TypeScript files into JavaScript files in the `dist` folder.
+The build process will then copy the `views` folder to the `dist` folder.
+
 ## Technologies used
 
 * [Concurrently](https://www.npmjs.com/package/concurrently).
