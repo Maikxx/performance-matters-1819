@@ -37,6 +37,7 @@ House detail page | Book detail page
 ## Technologies used
 
 * [Concurrently](https://www.npmjs.com/package/concurrently).
+* [Express](https://expressjs.com/).
 * [Gulp](https://gulpjs.com/).
 * [TypeScript](https://www.typescriptlang.org).
 * [Wait-on](https://www.npmjs.com/package/wait-on).
@@ -50,6 +51,7 @@ House detail page | Book detail page
 * Prefetch [data](./server/public/data) from the [API](https://anapioficeandfire.com/) on the server and load it into memory, so that no excess requests are needed.
 * Added [meta description](./server/src/views/partials/head.ejs#L3) tag to increase SEO scrore.
 * Added [robots.txt](./server/public/robots.txt) to increase SEO scrore.
+* Add [memory caching](./server/src/services/memoryCache.ts).
 
 ## Data sources
 

@@ -6,7 +6,7 @@ import bodyParser from 'body-parser'
 import { getIndexRoute, getCharacterDetailRoute, getBookDetailRoute, getHouseDetailRoute, getErrorRoute } from './routes/getRoutes'
 import { getMemoryData } from './helpers/getMemoryData'
 import { postSearchRoute } from './routes/postRoutes'
-import { cache } from './helpers/memoryCache'
+import { cache } from './services/memoryCache'
 
 (async() => {
     const app = Express()
