@@ -29,7 +29,7 @@ import { cache } from './services/memoryCache'
 
     app.post('/search', urlencodedParser, postSearchRoute)
 
-    app.listen(({ port: 3000 }), () => {
+    app.listen(({ port: process.env.PORT || 3000 }), () => {
         console.info(`App is now open for action.`)
     })
 })()
