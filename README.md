@@ -1,5 +1,7 @@
 # Performance Matters
 
+[🚀 Demo link 🚀](https://performance-matters.herokuapp.com/).
+
 A Game of Thrones inspired **server side rendered** application which allows the user to explore relations between characters, houses, books and more. It aims to let users learn more about Game of Thrones.
 
 Characters overview page | Character detail page
