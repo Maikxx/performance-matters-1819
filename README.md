@@ -48,6 +48,8 @@ House detail page | Book detail page
 * Render the application server side.
 * [Minify and prefix](./server/gulpfile.js) the css.
 * Prefetch [data](./server/public/data) from the [API](https://anapioficeandfire.com/) on the server and load it into memory, so that no excess requests are needed.
+* Added [meta description](./server/src/views/partials/head.ejs#L3) tag to increase SEO scrore.
+* Added [robots.txt](./server/public/robots.txt) to increase SEO scrore.
 
 ## Data sources
 
