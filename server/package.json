@@ -17,6 +17,7 @@
         "@types/node-fetch": "^2.1.6",
         "concurrently": "^4.1.0",
         "gulp": "^4.0.0",
+        "gulp-autoprefixer": "^6.0.0",
         "gulp-clean-css": "^4.0.0",
         "ts-node-dev": "^1.0.0-pre.32",
         "tslint": "^5.13.1",
