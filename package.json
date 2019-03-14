@@ -4,11 +4,10 @@
     "author": "Maikel van Veen <maikeloo10@hotmail.com>",
     "license": "MIT",
     "scripts": {
-        "build": "tsc && copyfiles -E -u 1 \"./src/views/**/*\" ./dist",
+        "build": "tsc && copyfiles -E -u 2 \"./server/src/views/**/*\" ./server/dist",
         "open-chrome": "wait-on http://localhost:3000 && open -a \"Google Chrome\" http://localhost:3000",
-        "start-production": "tsc && node ./dist/index.js",
-        "start": "node dist/index.js",
-        "start-server": "ts-node-dev --respawn --transpileOnly ./src/index.ts",
+        "start": "node server/dist/index.js",
+        "start-server": "ts-node-dev --respawn --transpileOnly ./server/src/index.ts",
         "watch-server": "concurrently \"gulp minifyCss\" \"yarn start-server\" \"yarn open-chrome\" --raw"
     },
     "devDependencies": {

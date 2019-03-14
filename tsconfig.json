@@ -14,8 +14,8 @@
         "noImplicitReturns": true,
         "noImplicitThis": true,
         "noUnusedLocals": true,
-        "outDir": "./dist",
-        "rootDir": "src",
+        "outDir": "./server/dist",
+        "rootDir": "./server/src",
         "skipLibCheck": true,
         "sourceMap": false,
         "strictNullChecks": true,
@@ -27,6 +27,6 @@
     ],
     "exclude": [
         "./node_modules",
-        "./dist"
+        "./server/dist"
     ]
 }
