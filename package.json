@@ -1,17 +1,21 @@
 {
-  "name": "performance-matters",
-  "version": "1.0.0",
-  "private": true,
-  "repository": "git@github.com:Maikxx/performance-matters-1819.git",
-  "author": "Maikel van Veen <maikeloo10@hotmail.com>",
-  "license": "MIT",
-  "scripts": {
-    "build": "yarn build-server",
-    "build-server": "yarn install --cwd server && cd server && yarn build",
-    "start": "yarn start-server",
-    "start-server": "cd server && yarn start"
-  },
-  "devDependencies": {
-    "yarn": "^1.13.0"
-  }
+    "name": "performance-matters",
+    "version": "1.0.0",
+    "private": true,
+    "repository": "git@github.com:Maikxx/performance-matters-1819.git",
+    "author": "Maikel van Veen <maikeloo10@hotmail.com>",
+    "license": "MIT",
+    "scripts": {
+        "build": "yarn build-server",
+        "build-server": "yarn install --cwd server && cd server && yarn build",
+        "start": "yarn start-server",
+        "start-server": "cd server && yarn start"
+    },
+    "devDependencies": {
+        "yarn": "^1.13.0"
+    },
+    "engineStrict": true,
+    "engines": {
+        "node": "11.0.0"
+    }
 }
