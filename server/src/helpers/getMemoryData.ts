@@ -4,6 +4,7 @@ import path from 'path'
 import { Character } from '../types/Character'
 import { House } from '../types/House'
 import { Book } from '../types/Book'
+import { flatten } from 'lodash'
 
 const readFile = util.promisify(fs.readFile)
 
@@ -19,9 +20,9 @@ export async function getMemoryData() {
         await JSON.parse(housesResponse.toString()),
     ])
 
-    const characters = (charactersData.flat() as Character[])
-    const houses = (housesData.flat() as House[])
-    const books = (booksData.flat() as Book[])
+    const characters = (flatten(charactersData) as Character[])
+    const houses = (flatten(housesData) as House[])
+    const books = (flatten(booksData) as Book[])
 
     return {
         characters,
