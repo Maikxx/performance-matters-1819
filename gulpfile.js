@@ -3,7 +3,7 @@ const cleanCSS = require('gulp-clean-css')
 const autoprefixer = require('gulp-autoprefixer')
 
 gulp.task('minifyCss', () => {
-    return gulp.src('./server/src/css/*.css')
+    return gulp.src('./client/src/css/*.css')
         .pipe(autoprefixer())
         .pipe(cleanCSS({
             browsers: [
