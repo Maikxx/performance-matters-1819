@@ -15,7 +15,7 @@ import { cache } from './services/memoryCache'
     app.use(Express.static(path.join(__dirname, '../public')))
 
     app.set('view engine', 'ejs')
-    app.set('views', `${__dirname}/views`)
+    app.set('views', path.join(__dirname, 'views'))
 
     const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
@@ -30,6 +30,6 @@ import { cache } from './services/memoryCache'
     app.post('/search', urlencodedParser, postSearchRoute)
 
     app.listen(({ port: process.env.PORT || 3000 }), () => {
-        console.info(`App is now open for action.`)
+        console.info(`App is now open for action on port ${process.env.PORT || 3000}.`)
     })
 })()
