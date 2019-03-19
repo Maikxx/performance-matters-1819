@@ -1,0 +1,1 @@
+"use strict";var searchForm=document.querySelector(".SearchForm");
