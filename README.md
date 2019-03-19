@@ -65,6 +65,7 @@ The build process will then copy the `views` folder to the `dist` folder.
 
 * [ ] Add more styling to make the application more appealing.
 * [ ] Update docs images.
+* [ ] Add web fonts.
 * [ ] Add infinite scrolling to prevent enourmous amounts of DOM elements to be rendered at once.
 
 ## Technologies used
