@@ -4,7 +4,7 @@ import path from 'path'
 import { Character } from '../types/Character'
 import { House } from '../types/House'
 import { Book } from '../types/Book'
-import { flatten } from 'lodash'
+import flatten from 'lodash.flatten'
 
 const readFile = util.promisify(fs.readFile)
 
