@@ -18,6 +18,8 @@ House detail page | Book detail page
     1. [Pre-install](#Pre-install)
     2. [Install](#Install)
 2. [Optimisations](#Optimisations)
+    1. [Focus points](#Focus-points)
+    2. [The good stuff](#The-good-stuff)
 3. [Future enhancements](#Future-enhancements)
 4. [Technologies used 📦](#Technologies-used)
 5. [Data sources](#Data-sources)
@@ -42,15 +44,18 @@ The build process will then copy the `views` folder to the `dist` folder.
 
 ## Optimisations
 
-The optimisations I made focus on the following few aspects:
+### Focus points
+
 * First view - When browsing around the web, the most annoying thing that can happen is when you are on a slow connection, and then the pages often takes up to 5 seconds to show any content (looking at you nu.nl).
 * Repeat view - In this case, it is more convenient for the page to be quick. For example (again), nu.nl doesn't do this very well in my eyes. It seems as though they just made the mobile website crappy in order for you to download the bloated, data-mining, ad haven of an app. Anyways, rant over. I perceive it as shitty if you go to a page, click on a link and read something, then go back and are greeted with a white screen.
 
-The optimisations:
+### The good stuff
+
 * Enabled text [compression](https://github.com/expressjs/compression).
 * Render the application server side.
-* [Minify and prefix](./server/gulpfile.js) the css.
-* Prefetch [data](./server/public/data) from the [API](https://anapioficeandfire.com/) on the server and load it into memory, so that no excess requests are needed.
+* [Minify and prefix](./server/gulpfile.js) the CSS.
+* [Minify and compile](./server/gulpfile.js) the client-side TypeScript.
+* Prefetch [data](./server/public/data) from the [API](https://anapioficeandfire.com/) on the server and load it into memory, so that no excess requests are needed, this however only works if you are sure that the data from the API will not change, which is the case in this API until a new season of GoT will arrive.
 * Added [meta description](./server/src/views/partials/head.ejs#L3) tag to increase SEO scrore.
 * Added [robots.txt](./server/public/robots.txt) to increase SEO scrore.
 * Add [memory caching](./server/src/services/memoryCache.ts).
