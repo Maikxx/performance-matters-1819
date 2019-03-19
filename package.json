@@ -4,13 +4,18 @@
     "author": "Maikel van Veen <maikeloo10@hotmail.com>",
     "license": "MIT",
     "scripts": {
-        "build": "tsc && gulp minifyCss && copyfiles -E -u 2 \"./server/src/views/**/*\" ./server/dist",
+        "build": "tsc && yarn minify-client && copyfiles -E -u 2 \"./server/src/views/**/*\" ./server/dist",
         "open-chrome": "wait-on http://localhost:3000 && open -a \"Google Chrome\" http://localhost:3000",
+        "minify-client": "yarn minify-css && yarn minify-js",
+        "minify-css": "gulp minifyCss",
+        "minify-js": "gulp minifyJs",
         "start": "node server/dist/index.js",
-        "start-server": "ts-node-dev --respawn --transpileOnly ./server/src/index.ts",
-        "watch-server": "concurrently \"gulp minifyCss\" \"yarn start-server\" \"yarn open-chrome\" --raw"
+        "start-server": "concurrently \"yarn minify-client\" \"yarn watch-server\" \"yarn open-chrome\" --raw",
+        "watch-server": "ts-node-dev --respawn --transpileOnly ./server/src/index.ts"
     },
     "devDependencies": {
+        "@babel/core": "^7.3.4",
+        "@babel/preset-env": "^7.3.4",
         "@types/body-parser": "^1.17.0",
         "@types/compression": "^0.0.36",
         "@types/ejs": "^2.6.3",
@@ -23,7 +28,11 @@
         "copyfiles": "^2.1.0",
         "gulp": "^4.0.0",
         "gulp-autoprefixer": "^6.0.0",
+        "gulp-babel": "^8.0.0",
         "gulp-clean-css": "^4.0.0",
+        "gulp-plumber": "^1.2.1",
+        "gulp-typescript": "^5.0.1",
+        "gulp-uglify": "^3.0.2",
         "ts-node-dev": "^1.0.0-pre.32",
         "tslint": "^5.13.1",
         "tslint-eslint-rules": "^5.4.0",

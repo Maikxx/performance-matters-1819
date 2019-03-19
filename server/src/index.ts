@@ -27,7 +27,7 @@ import { cache } from './services/memoryCache'
     app.get('/houses/:id', cache(50), getHouseDetailRoute(houses))
     app.get('*', cache(50), getErrorRoute)
 
-    app.post('/search', urlencodedParser, postSearchRoute)
+    app.post('/search', urlencodedParser, postSearchRoute(characters))
 
     app.listen(({ port: process.env.PORT || 3000 }), () => {
         console.info(`App is now open for action on port ${process.env.PORT || 3000}.`)
