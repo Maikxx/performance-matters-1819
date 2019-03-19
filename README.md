@@ -57,6 +57,7 @@ The build process will then copy the `views` folder to the `dist` folder.
 * Added [meta description](./server/src/views/partials/head.ejs#L3) tag to increase SEO scrore.
 * Added [robots.txt](./server/public/robots.txt) to increase SEO scrore.
 * Add [memory caching](./server/src/services/memoryCache.ts).
+* Progressive enhancement for searching.
 
 ## Data sources
 
