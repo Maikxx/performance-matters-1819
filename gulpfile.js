@@ -5,6 +5,8 @@ const uglify = require('gulp-uglify')
 const babel = require('gulp-babel')
 const ts = require('gulp-typescript')
 const plumber = require('gulp-plumber')
+const brotli = require('gulp-brotli')
+const gzip = require('gulp-gzip')
 
 gulp.task('minifyCss', () => {
     return gulp.src('./client/css/*.css')
@@ -38,7 +40,28 @@ gulp.task('minifyJs', () => {
         .pipe(gulp.dest('./server/public/scripts'))
 })
 
+gulp.task('precompress', () => {
+    gulp.src('./server/public/**/*.{json,txt,css,js}')
+        .pipe(brotli.compress({
+            extension: 'br',
+            skipLarger: true,
+            mode: 0,
+            quality: 11,
+            lgblock: 0
+        }))
+        .pipe(gulp.dest('./server/public'))
+
+    return gulp.src('./server/public/**/*.{json,txt,css,js}')
+        .pipe(gzip({
+            append: true,
+            gzipOptions: {
+                level: 9,
+            }
+        }))
+        .pipe(gulp.dest('./server/public'))
+})
+
 if (process.env.NODE_ENV !== 'production') {
-    gulp.watch(['./client/css/*.css'], gulp.series('minifyCss'))
-    gulp.watch(['./client/scripts/*.ts'], gulp.series('minifyJs'))
+    gulp.watch(['./client/css/*.css'], gulp.series(['minifyCss', 'precompress']))
+    gulp.watch(['./client/scripts/*.ts'], gulp.series(['minifyJs', 'precompress']))
 }

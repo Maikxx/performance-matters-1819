@@ -11,7 +11,15 @@ import { cache } from './services/memoryCache'
 (async() => {
     const app = Express()
     app.use(Helmet())
-    app.use(compression())
+    app.use(compression({
+        filter: (request: Express.Request, response: Express.Response) => {
+            if (request.headers.accept) {
+                return request.headers.accept.includes('text/html')
+            }
+
+            return compression.filter(request, response)
+        },
+    }))
     app.use(Express.static(path.join(__dirname, '../public')))
 
     app.set('view engine', 'ejs')

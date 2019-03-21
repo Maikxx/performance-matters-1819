@@ -4,11 +4,12 @@
     "author": "Maikel van Veen <maikeloo10@hotmail.com>",
     "license": "MIT",
     "scripts": {
-        "build": "tsc && yarn minify-client && copyfiles -E -u 2 \"./server/src/views/**/*\" ./server/dist",
+        "build": "tsc && yarn minify-client && yarn precompress && copyfiles -E -u 2 \"./server/src/views/**/*\" ./server/dist",
         "open-chrome": "wait-on http://localhost:3000 && open -a \"Google Chrome\" http://localhost:3000",
         "minify-client": "yarn minify-css && yarn minify-js",
         "minify-css": "gulp minifyCss",
         "minify-js": "gulp minifyJs",
+        "precompress": "gulp precompress",
         "start": "node server/dist/index.js",
         "start-server": "concurrently \"yarn minify-client\" \"yarn watch-server\" \"yarn open-chrome\" --raw",
         "watch-server": "ts-node-dev --respawn --transpileOnly ./server/src/index.ts"
@@ -29,7 +30,9 @@
         "gulp": "^4.0.0",
         "gulp-autoprefixer": "^6.0.0",
         "gulp-babel": "^8.0.0",
+        "gulp-brotli": "^1.2.1",
         "gulp-clean-css": "^4.0.0",
+        "gulp-gzip": "^1.4.2",
         "gulp-plumber": "^1.2.1",
         "gulp-typescript": "^5.0.1",
         "gulp-uglify": "^3.0.2",

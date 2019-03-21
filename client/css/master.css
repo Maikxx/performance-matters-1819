@@ -15,6 +15,7 @@
 
 .InfiniteScrollList li {
     width: 12%;
+    min-width: 10em;
     padding: 1%;
     margin-bottom: 12px;
     display: flex;
