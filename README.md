@@ -60,6 +60,7 @@ The build process will then copy the `views` folder to the `dist` folder.
 * Added [robots.txt](./server/public/robots.txt) to increase SEO scrore.
 * Add [memory caching](./server/src/services/memoryCache.ts).
 * Progressive enhancement for searching.
+* Precompression.
 
 ## Future enhancements
 
