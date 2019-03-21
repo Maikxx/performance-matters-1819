@@ -31,12 +31,13 @@ import { decompress } from './services/decompressionService'
     const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
     const { characters, books, houses } = await getMemoryData()
+    const aWeekInSeconds = 60 * 60 * 24 * 7
 
-    app.get('/', cache(50), getIndexRoute(characters))
-    app.get('/characters/:id', cache(50), getCharacterDetailRoute(characters))
-    app.get('/books/:id', cache(50), getBookDetailRoute(books))
-    app.get('/houses/:id', cache(50), getHouseDetailRoute(houses))
-    app.get('*', cache(50), getErrorRoute)
+    app.get('/', cache(aWeekInSeconds), getIndexRoute(characters))
+    app.get('/characters/:id', cache(aWeekInSeconds), getCharacterDetailRoute(characters))
+    app.get('/books/:id', cache(aWeekInSeconds), getBookDetailRoute(books))
+    app.get('/houses/:id', cache(aWeekInSeconds), getHouseDetailRoute(houses))
+    app.get('*', cache(aWeekInSeconds), getErrorRoute)
 
     app.post('/search', urlencodedParser, postSearchRoute(characters))
 
