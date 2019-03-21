@@ -1,3 +1,30 @@
+@font-face {
+    font-family: 'Cinzel Decorative';
+    src: local('Cinzel Decorative Bold'), local('CinzelDecorative-Bold'),
+        url('/assets/fonts/CinzelDecorative-Bold.woff2') format('woff2'),
+        url('/assets/fonts/CinzelDecorative-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cinzel Decorative';
+    src: local('Cinzel Decorative Regular'), local('CinzelDecorative-Regular'),
+        url('/assets/fonts/CinzelDecorative-Regular.woff2') format('woff2'),
+        url('/assets/fonts/CinzelDecorative-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cinzel Decorative';
+    src: local('Cinzel Decorative Black'), local('CinzelDecorative-Black'),
+        url('/assets/fonts/CinzelDecorative-Black.woff2') format('woff2'),
+        url('/assets/fonts/CinzelDecorative-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+}
+
 * {
     margin: 0;
     font-family: inherit;
@@ -61,11 +88,10 @@ body {
     display: flex;
     overflow-x: hidden;
     line-height: 1;
-    background-color: #FFFFFF;
-    font-family: 'Raleway', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
+    background-color: #2B2B2B;
+    color: #f4f4f4;
+    font-family: 'Cinzel Decorative', 'Times New Roman', Times, serif;
+    font-weight: 400;
 }
 
 body main {
@@ -79,12 +105,21 @@ body main {
     display: block;
     font-size: inherit;
     text-decoration: none;
-    color: #4F8CC4;
+    color: #95B1B0;
     cursor: pointer;
 }
 
-.Link:hover {
+.Link:hover,
+.Link:focus {
     transition: .2s color ease;
     text-decoration: underline;
-    color: #5E8FC9;
+}
+
+.PageHeader .Link {
+    color: #F4F4F4;
+}
+
+.PageHeader .Link:hover,
+.PageHeader .Link:focus {
+    text-decoration: none;
 }
