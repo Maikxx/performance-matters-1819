@@ -61,12 +61,12 @@ The build process will then copy the `views` folder to the `dist` folder.
 * Add [memory caching](./server/src/services/memoryCache.ts).
 * Progressive enhancement for searching.
 * Precompression.
+* Make use of a web font.
 
 ## Future enhancements
 
 * [ ] Add more styling to make the application more appealing.
 * [ ] Update docs images.
-* [ ] Add web fonts.
 * [ ] Add infinite scrolling to prevent enourmous amounts of DOM elements to be rendered at once.
 
 ## Technologies used
