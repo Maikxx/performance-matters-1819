@@ -61,7 +61,7 @@ The build process will then copy the `views` folder to the `dist` folder.
 * Add [memory caching](./server/src/services/memoryCache.ts).
 * Progressive enhancement for searching.
 * Precompression.
-* Make use of a web font.
+* Make use of a web font, with WOFF and WOFF2, with only a subset of all characters (only Latin).
 
 ## Future enhancements
 
