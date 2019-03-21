@@ -7,6 +7,7 @@ import { getIndexRoute, getCharacterDetailRoute, getBookDetailRoute, getHouseDet
 import { getMemoryData } from './helpers/getMemoryData'
 import { postSearchRoute } from './routes/postRoutes'
 import { cache } from './services/memoryCache'
+import { decompress } from './services/decompressionService'
 
 (async() => {
     const app = Express()
@@ -20,6 +21,8 @@ import { cache } from './services/memoryCache'
             return compression.filter(request, response)
         },
     }))
+    app.get('*.js', decompress)
+    app.get('*.css', decompress)
     app.use(Express.static(path.join(__dirname, '../public')))
 
     app.set('view engine', 'ejs')

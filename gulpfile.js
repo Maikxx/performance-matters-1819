@@ -41,7 +41,7 @@ gulp.task('minifyJs', () => {
 })
 
 gulp.task('precompress', () => {
-    gulp.src('./server/public/**/*.{json,txt,css,js}')
+    gulp.src('./server/public/**/*.{css,js}')
         .pipe(brotli.compress({
             extension: 'br',
             skipLarger: true,
@@ -51,7 +51,7 @@ gulp.task('precompress', () => {
         }))
         .pipe(gulp.dest('./server/public'))
 
-    return gulp.src('./server/public/**/*.{json,txt,css,js}')
+    return gulp.src('./server/public/**/*.{css,js}')
         .pipe(gzip({
             append: true,
             gzipOptions: {
