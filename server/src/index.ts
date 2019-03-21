@@ -13,12 +13,12 @@ import { decompress } from './services/decompressionService'
     const app = Express()
     app.use(Helmet())
     app.use(compression({
-        filter: (request: Express.Request, response: Express.Response) => {
+        filter: (request: Express.Request) => {
             if (request.headers.accept) {
                 return request.headers.accept.includes('text/html')
             }
 
-            return compression.filter(request, response)
+            return false
         },
     }))
     app.get('*.js', decompress)
