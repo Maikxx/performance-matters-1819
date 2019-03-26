@@ -1,3 +1,15 @@
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', async () => {
+        try {
+            const registration = await navigator.serviceWorker.register('/worker.js')
+            console.log('ServiceWorker registration successful with scope: ', registration.scope)
+        } catch (error) {
+            console.error(error)
+            throw new Error(error)
+        }
+    })
+}
+
 const searchForm = document.querySelector('.SearchForm')
 searchForm.addEventListener('submit', onSubmit)
 

@@ -12,6 +12,7 @@ import { decompress } from './services/decompressionService'
 (async() => {
     const app = Express()
     app.use(Helmet())
+    app.use(Express.static(path.join(__dirname, '../public')))
     app.use(compression({
         filter: (request: Express.Request) => {
             if (request.headers.accept) {
@@ -21,9 +22,8 @@ import { decompress } from './services/decompressionService'
             return false
         },
     }))
-    app.get('*.js', decompress)
+    app.get('scripts/*.js', decompress)
     app.get('*.css', decompress)
-    app.use(Express.static(path.join(__dirname, '../public')))
 
     app.set('view engine', 'ejs')
     app.set('views', path.join(__dirname, 'views'))
