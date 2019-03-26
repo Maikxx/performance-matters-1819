@@ -126,3 +126,7 @@ body main {
 .PageHeader .Link:focus {
     text-decoration: none;
 }
+
+.OfflineImage {
+    max-width: 200px;
+}

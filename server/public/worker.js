@@ -4,7 +4,8 @@ const CORE_ASSETS = [
     '/css/DataList.css',
     '/css/index.css',
     '/css/master.css',
-    '/offline.html'
+    '/offline.html',
+    '/assets/offline-placeholder.gif'
 ]
 
 self.addEventListener('install', event => {
