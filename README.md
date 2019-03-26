@@ -4,13 +4,9 @@
 
 A Game of Thrones inspired **server side rendered** application which allows the user to explore relations between characters, houses, books and more. It aims to let users learn more about Game of Thrones.
 
-Characters overview page | Character detail page
+Homepage | Detail page
 :-------------------------:|:-------------------------:
-![Characters overview page](docs/assets/characters.png) | ![Characters detail page](docs/assets/character.png)
-
-House detail page | Book detail page
-:-------------------------:|:-------------------------:
-![House detail page](docs/assets/house.png) | ![Book detail page](docs/assets/book.png)
+![Homepage](docs/home.png) | ![Detail page](docs/detail.png)
 
 ## Table of Contents
 
@@ -62,6 +58,8 @@ The build process will then copy the `views` folder to the `dist` folder.
 * Progressive enhancement for searching.
 * Precompression.
 * Make use of a web font, with WOFF and WOFF2, with only a subset of all characters (only Latin).
+
+![Audit scores after adding a service worker](./docs/score-after-pwa.png)
 
 ## Future enhancements
 
