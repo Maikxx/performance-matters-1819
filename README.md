@@ -69,7 +69,6 @@ The build process will then copy the `views` folder to the `dist` folder.
 * [ ] Update docs images.
 * [ ] Add infinite scrolling to prevent enourmous amounts of DOM elements to be rendered at once.
 * [ ] Add HTTP2.
-* [ ] Look at critical CSS.
 
 ## Technologies used
 
