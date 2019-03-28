@@ -11,8 +11,6 @@ Homepage | Detail page
 ## Table of Contents
 
 1. [Installation](#Installation)
-    1. [Pre-install](#Pre-install)
-    2. [Install](#Install)
 2. [Optimisations](#Optimisations)
     1. [Focus points](#Focus-points)
     2. [The good stuff](#The-good-stuff)
@@ -23,12 +21,8 @@ Homepage | Detail page
 
 ## Installation
 
-### Pre-install
-
 * Make sure to install [yarn](https://yarnpkg.com/en/) or [npm](https://www.npmjs.com).
 * Make sure the **port** specified in the [index.ts](server/src/index.ts) is available (defaults to 3000).
-
-### Install
 
 * Clone the repository: `git clone git@github.com:Maikxx/performance-matters-1819.git`.
 * Navigate into the directory: `cd performance-matters-1819`.
