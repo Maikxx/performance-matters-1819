@@ -42,6 +42,10 @@ The build process will then copy the `views` folder to the `dist` folder.
 
 * Time to first byte - I just added this, because thought it was interesting to look at ways in which the server can respond in a very fast manner.
 
+#### Job Story
+
+**When** I am visiting this Game of Thrones website and start browsing, while in the train and the internet suddenly drops, **I want to** be able to keep browsing this websites (previous) pages, **so I can** continue to explore and learn more about Game of Thrones.
+
 ### The good stuff
 
 * Enabled text [compression](https://github.com/expressjs/compression). This reduced the time to first byte as well as improving the speed at which the page is first shown.
