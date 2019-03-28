@@ -55,6 +55,10 @@ The build process will then copy the `views` folder to the `dist` folder.
 
 ![Audit scores after adding a service worker](./docs/score-after-pwa.png)
 
+After tweaking some more things with the service worker, the following is the final score when running audits:
+
+![Audit score after tweaking service worker](./docs/final-benchmark-score.png)
+
 ## Future enhancements
 
 * [X] Add more styling to make the application more appealing.
