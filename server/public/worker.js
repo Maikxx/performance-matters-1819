@@ -23,9 +23,28 @@ self.addEventListener('fetch', event => {
             && event.request.headers.get('accept').includes('text/html')
         )
     ) {
-        event.respondWith(fetch(event.request.url).catch(error => caches.match('/offline.html')))
-    }
-    else {
+        event.respondWith(fetch(event.request.url)
+            .then(response => caches
+                .open('html-cache')
+                .then(cache => cache.put(event.request.url, response.clone())
+                    .then(() => response)
+            ))
+            .catch(() => {
+                return caches.open('html-cache')
+                    .then(cache => {
+                        return caches.match(event.request.url)
+                            .then(response => {
+                                return response ? response : caches.open(CACHE_NAME)
+                                    .then(cache => {
+                                        return cache.match('/offline.html').then(response => {
+                                            return response
+                                        })
+                                    })
+                            })
+                    })
+            })
+        )
+    } else {
         event.respondWith(
             caches
             .match(event.request)
