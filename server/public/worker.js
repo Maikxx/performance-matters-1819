@@ -24,11 +24,16 @@ self.addEventListener('fetch', event => {
         )
     ) {
         event.respondWith(fetch(event.request.url)
-            .then(response => caches
-                .open('html-cache')
-                .then(cache => cache.put(event.request.url, response.clone())
-                    .then(() => response)
-            ))
+            .then(response => {
+                return caches
+                    .open('html-cache')
+                    .then(cache => {
+                        return cache.put(event.request.url, response.clone())
+                    })
+                    .then(() => {
+                        return response
+                    })
+            })
             .catch(() => {
                 return caches.open('html-cache')
                     .then(cache => {
