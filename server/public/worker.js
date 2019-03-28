@@ -24,29 +24,22 @@ self.addEventListener('fetch', event => {
         )
     ) {
         event.respondWith(fetch(event.request.url)
-            .then(response => {
-                return caches
-                    .open('html-cache')
-                    .then(cache => {
-                        return cache.put(event.request.url, response.clone())
-                    })
-                    .then(() => {
-                        return response
-                    })
+            .then(async response => {
+                const cache = await caches.open('html-cache')
+                await cache.put(event.request.url, response.clone())
+                return response
             })
-            .catch(() => {
-                return caches.open('html-cache')
-                    .then(cache => {
-                        return caches.match(event.request.url)
-                            .then(response => {
-                                return response ? response : caches.open(CACHE_NAME)
-                                    .then(cache => {
-                                        return cache.match('/offline.html').then(response => {
-                                            return response
-                                        })
-                                    })
-                            })
-                    })
+            .catch(async () => {
+                await caches.open('html-cache')
+                const response = await caches.match(event.request.url)
+
+                if (response) {
+                    return response
+                } else {
+                    const cache = await caches.open(CACHE_NAME)
+                    const cacheResponse = await cache.match('/offline.html')
+                    return cacheResponse
+                }
             })
         )
     } else {
