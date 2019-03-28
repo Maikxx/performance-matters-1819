@@ -1,6 +1,7 @@
 const CACHE_NAME = 'performance-matters-cache'
 const CORE_ASSETS = [
     '/scripts/index.js',
+    '/scripts/connection.js',
     '/css/DataList.css',
     '/css/index.css',
     '/css/master.css',
