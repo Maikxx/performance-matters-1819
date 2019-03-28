@@ -4,9 +4,8 @@
 
 A Game of Thrones inspired **server side rendered** application which allows the user to explore relations between characters, houses, books and more. It aims to let users learn more about Game of Thrones.
 
-Homepage | Detail page
-:-------------------------:|:-------------------------:
-![Homepage](docs/home.png) | ![Detail page](docs/detail.png)
+![Homepage](docs/home.png)
+![Detail page](docs/detail.png)
 
 ## Table of Contents
 
