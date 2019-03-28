@@ -37,21 +37,36 @@ The build process will then copy the `views` folder to the `dist` folder.
 ### Focus points
 
 * First view - When browsing around the web, the most annoying thing that can happen is when you are on a slow connection, and then the pages often takes up to 5 seconds to show any content (looking at you nu.nl).
+
 * Repeat view - In this case, it is more convenient for the page to be quick. For example (again), nu.nl doesn't do this very well in my eyes. It seems as though they just made the mobile website crappy in order for you to download the bloated, data-mining, ad haven of an app. Anyways, rant over. I perceive it as shitty if you go to a page, click on a link and read something, then go back and are greeted with a white screen.
+
+* Time to first byte - I just added this, because thought it was interesting to look at ways in which the server can respond in a very fast manner.
 
 ### The good stuff
 
-* Enabled text [compression](https://github.com/expressjs/compression).
+* Enabled text [compression](https://github.com/expressjs/compression). This reduced the time to first byte as well as improving the speed at which the page is first shown.
+
 * Render the application server side.
-* [Minify and prefix](./server/gulpfile.js) the CSS.
-* [Minify and compile](./server/gulpfile.js) the client-side TypeScript.
-* Prefetch [data](./server/public/data) from the [API](https://anapioficeandfire.com/) on the server and load it into memory, so that no excess requests are needed, this however only works if you are sure that the data from the API will not change, which is the case in this API until a new season of GoT will arrive.
+
+* [Minify and prefix](./server/gulpfile.js) the CSS. This reduced the time to first byte as well as improving the speed at which the page is first shown.
+
+* [Minify and compile](./server/gulpfile.js) the client-side TypeScript. This reduced the time to first byte as well as improving the speed at which the page is first shown.
+
+* Prefetch [data](./server/public/data) from the [API](https://anapioficeandfire.com/) on the server and load it into memory, so that no excess requests are needed, this however only works if you are sure that the data from the API will not change, which is the case in this API until a new season of GoT will arrive. This decreased the time to first byte drastically, since the server didn't need to perform a request to an API each time a view is asked to render.
+
 * Added [meta description](./server/src/views/partials/head.ejs#L3) tag to increase SEO scrore.
+
 * Added [robots.txt](./server/public/robots.txt) to increase SEO scrore.
-* Add [memory caching](./server/src/services/memoryCache.ts).
+
+* Add [memory caching](./server/src/services/memoryCache.ts). This decreased the time it takes for the repeat view to show to the user, since it is being served from the cache.
+
 * Progressive enhancement for searching.
-* Precompression.
+
+* Precompression. This reduced the time to first byte, because the server didn't need to compress files on the fly for each request, but instead is asked to compress them when changes happen to the files (JS and CSS in this case). This also increased the speed at which the first view is shown to the user.
+
 * Make use of a web font, with WOFF and WOFF2, with only a subset of all characters (only Latin).
+
+* Make use of a service worker to view visited pages offline.
 
 ![Audit scores after adding a service worker](./docs/score-after-pwa.png)
 
@@ -59,12 +74,12 @@ After tweaking some more things with the service worker, the following is the fi
 
 ![Audit score after tweaking service worker](./docs/final-benchmark-score.png)
 
+As you can see in the image, there are just a few things that could be even more optimized where I did not have time for, which I put in the [future enhancements](#Future-enhancements) section below.
+
 ## Future enhancements
 
-* [X] Add more styling to make the application more appealing.
-* [X] Update docs images.
-* [ ] Add infinite scrolling to prevent enourmous amounts of DOM elements to be rendered at once.
-* [ ] Add HTTP2.
+* Infinite scrolling to prevent enourmous amounts of DOM elements to be rendered at once.
+* HTTP2.
 
 ## Technologies used
 
